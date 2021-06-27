@@ -1,13 +1,11 @@
-async function getComponent() {
-    const element = document.createElement('div');
+import _ from 'lodash';
 
-    const { default: _ } = await import('lodash');
+function component() {
+    const element = document.createElement('div');
 
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
     return element;
 }
 
-getComponent.then((component) => {
-    document.body.appendChild(component());
-});
+document.body.appendChild(component());
